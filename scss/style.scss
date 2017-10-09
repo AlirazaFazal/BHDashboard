@@ -1,0 +1,370 @@
+body {
+            font: 16px arial;
+            background-color: #000000;
+        }
+
+#circular-gauge {
+  width:200px;
+  margin:50px auto;
+  position:relative;
+  bottom: 640px;
+  right: 69px;
+  overflow: hidden;
+
+}
+
+#gauge-text {
+  position:absolute;
+  width:100%;
+  text-align:center;
+  transform:translateY(-50%);
+  top:50%;
+  font-weight:bold;
+  font-size:30px;
+  color:#ff33cc;
+  font-family:helvetica, sans-serif;
+  
+  span {
+    font-size:16px;
+    line-height:16px;
+    text-transform:uppercase;
+  }
+}
+
+svg {
+  
+  circle {
+    
+    stroke-dashoffset: 10;
+    transition: stroke-dashoffset 1s ease-out;
+    transform:rotate(-90deg);
+    transform-origin:50% 50%;
+    stroke: #ff33cc;
+    stroke-width: 4px;
+    
+    
+  }
+  #bar {
+    stroke-dashoffset:502.65px;
+    stroke: #ff33cc;
+    stroke-width: 20px;
+  }
+}
+
+#nlcircular-gauge {
+  width:200px;
+  margin:50px auto;
+  position:relative;
+  bottom: 1096px;
+  right: 69px;
+}
+
+#nlgauge-text {
+  position:absolute;
+  width:100%;
+  text-align:center;
+  transform:translateY(-50%);
+  top:50%;
+  font-weight:bold;
+  font-size:30px;
+  line-height:36px;
+  color:#00ccff;
+  font-family:helvetica, sans-serif;
+  
+  span {
+    font-size:16px;
+    line-height:16px;
+    text-transform:uppercase;
+  }
+}
+
+svg {
+  
+  #nlcircle {
+    
+    stroke-dashoffset: 10;
+    transition: stroke-dashoffset 1s ease-out;
+    transform:rotate(-90deg);
+    transform-origin:50% 50%;
+    stroke: #00ccff;
+    stroke-width: 4px;
+  }
+  
+  #nlbar {
+    stroke-dashoffset:502.65px;
+    stroke: #00ccff;
+    stroke-width: 20px;
+  }
+}
+
+.ajnlelement{
+  
+   overflow: visible;
+}
+
+#ajcircular-gauge {
+  width:200px;
+  margin:50px auto;
+  position:relative;
+  bottom: 955px;
+  right: 69px;
+}
+
+#ajgauge-text {
+  position:absolute;
+  width:100%;
+  text-align:center;
+  transform:translateY(-50%);
+  top:50%;
+  font-weight:bold;
+  font-size:30px;
+  color:#ff33cc;
+  font-family:helvetica, sans-serif;
+  
+  span {
+    font-size:16px;
+    line-height:16px;
+    text-transform:uppercase;
+  }
+}
+
+svg {
+  
+  #ajcircle {
+    
+    stroke-dashoffset: 10;
+    transition: stroke-dashoffset 1s ease-out;
+    transform:rotate(-90deg);
+    transform-origin:50% 50%;
+    stroke: #ff33cc;
+    stroke-width: 4px;
+    overflow: hidden;
+  }
+  
+  #ajbar {
+    stroke-dashoffset:502.65px;
+    stroke: #ff33cc;
+    stroke-width: 20px;
+        overflow: hidden;
+
+  }
+}
+
+
+
+#tbt-percentage {
+  position:absolute;
+  bottom: 290px;
+  right: 180px;
+  white-space: pre;
+  width:100%;
+  text-align:center;
+  transform:translateY(-50%);
+  font-weight:bold;
+  font-size:15px;
+  color:#cd6700;
+  font-family:helvetica, sans-serif;
+  
+}
+
+#nh-percentage {
+  position:absolute;
+  left: 30px;
+  bottom: 290px;
+  width:100%;
+  white-space: pre;
+  text-align:center;
+  transform:translateY(-50%);
+  font-weight:bold;
+  font-size:15px;
+  color:#0086ac;
+  font-family:helvetica, sans-serif;
+}
+
+#catpack {
+  position:absolute;
+  bottom:175px;
+  right:215px;
+  width:100%;
+  white-space: pre;
+  text-align:center;
+  transform:translateY(-50%);
+  font-weight:bold;
+  font-size:15px;
+  color:#0086ac;
+  font-family:helvetica, sans-serif; 
+}
+
+.unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* css formats for the gauge */
+        .gauge .domain {
+            stroke-width: 4px;
+            stroke: #fff;
+        }
+
+        .gauge .tick line {
+            stroke: #fff;
+            stroke-width: 4px;
+            fill: white;
+        }
+        
+        .gauge line {
+            stroke: #fff;
+        }
+
+        .gauge .arc, .gauge .cursor {
+            opacity: 0;
+        }
+
+        .gauge .major {
+            font-size: 19px;
+            font-family: 'Play', verdana, sans-serif;
+            font-weight: normal;
+          fill: white;
+        }
+        
+        .gauge .indicator {
+            stroke: #fff;
+            fill: #000;
+            stroke-width: 6px;
+        }
+
+.speedometer-border{
+    border-radius: 50%;
+    width: 600px; 
+    height: 600px;
+    border: 3px solid #fff;
+    
+}
+
+.speedometer-border span {
+    align-self: center;
+    line-height: 120px;
+    display: block;
+}
+
+.rocketmeter-border{
+    border-radius: 50%;
+    width: 190px; 
+    height: 190px;
+    border: 2px solid #fff;
+    position: relative;
+    left: 205px;
+    bottom: 200px;
+}
+
+.rocketmeter-border span {
+    align-self: center;
+    line-height: 120px;
+    display: inline;
+    position: relative;
+    left: 100px;
+    bottom: 90px;
+}
+
+/* css formats for the gauge */
+        .rocketgauge .domain {
+            stroke-width: 4px;
+            stroke: #fff;
+          
+        }
+
+        .rocketgauge .tick line {
+            stroke: #fff;
+            stroke-width: 4px;
+            fill: white;
+          
+        }
+        
+        .rocketgauge line {
+            stroke: #fff;
+        }
+
+        .rocketgauge .arc, .rocketgauge .cursor {
+            opacity: 0;
+        }
+
+        .rocketgauge .major {
+            font-size: 13px;
+            font-family: 'Play', verdana, sans-serif;
+            font-weight: normal;
+          fill: white;
+        }
+        
+        .rocketgauge .indicator {
+            stroke: #EE3311;
+            fill: #000;
+            stroke-width: 4px;
+        }
+
+.ajnlmeter-border{
+    border-radius: 50%;
+    width: 190px; 
+    height: 190px;
+    border: 2px solid #fff;
+    position: relative;
+    left: 205px;
+    bottom: 595px;
+}
+
+.ajnlmeter-border span {
+    align-self: center;
+    line-height: 120px;
+    display: inline;
+    position: relative;
+    right: 40px;
+    bottom: 40px;
+}
+
+/* css formats for the gauge */
+        .ajnlgauge .domain {
+            stroke-width: 4px;
+            stroke: #fff;
+          
+        }
+
+        .ajnlgauge .tick line {
+            stroke: #fff;
+            stroke-width: 4px;
+            fill: white;
+          
+        }
+        
+        .ajnlgauge line {
+            stroke: #fff;
+        }
+
+        .ajnlgauge .arc, .ajnlgauge .cursor {
+            opacity: 0;
+        }
+
+        .ajnlgauge .major {
+            font-size: 13px;
+            font-family: 'Play', verdana, sans-serif;
+            font-weight: normal;
+          fill: white;
+        }
+        
+        .ajnlgauge .indicator {
+            stroke: #EE3311;
+            fill: #000;
+            stroke-width: 4px;
+        }
+
+        /* css formats for the segment display */
+        .segdisplay .on {
+            fill: #ffff;
+
+        }
+
+        .segdisplay .off {
+            fill: #515151;
+            opacity: 0.1;
+        }

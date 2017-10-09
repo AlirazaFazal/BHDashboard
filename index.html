@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Play:700,400">
+    <script src="https://raw.githubusercontent.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
+    <script src="https://raw.githubusercontent.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.4/linear/gauge.min.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/js/highcharts.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/js/highcharts-more.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/js/modules/exporting.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+    
+    <!-- Ignite UI Required Combined CSS Files -->
+    <link href="http://cdn-na.infragistics.com/igniteui/2017.1/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2017.1/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+    <!-- Used to style the API Viewer and Explorer UI -->
+    <link href="https://www.igniteui.com/css/apiviewer.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+    <!-- Ignite UI Required Combined JavaScript Files --> 
+    <script src="http://cdn-na.infragistics.com/igniteui/2017.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2017.1/latest/js/infragistics.dv.js"></script>
+    
+    <script type="text/javascript" src="https://iop.io/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/iopctrl.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="main-pane">
+        <div id="speedometer"> </div>
+        <div id="fuel"></div>
+        <div id="rpm"></div>
+        <div id="rocket"></div>
+        <div id="machno"></div>
+        <div id="aj"></div>
+        <div id="nl"></div>
+<div class="tbt-percentage">
+  100
+  %TBT<br />
+</div>
+<div class="nh-percentage">
+  100
+  %NH<br />
+</div>
+    </div>    
+    <div class="right-pane">
+    <div id="voltagegauge" style="float: left"></div>
+        <div id="fronttempgauge" style=" float: left; left: 12%"></div>
+        <div id="reartempgauge" style=" float: left; left: 21%;"></div>
+        <div class="voltage-text">
+      VOLTAGE 
+      (V)<br /> </div>
+    <div class="fronttempgauge-text">
+      FRONT BRAKE TEMP 
+      (°C)<br /> </div>
+    <div class="reartempgauge-text">
+      REAR BRAKE TEMP 
+       (°C)<br /> </div>
+    </div>
+        </div>
+    <div class="footer-pane">
+        <div style="width:30%" id="distancegauge">
+  </div>
+    <div class="distance-text">
+      DISTANCE TRAVELED 
+        (KM)<br /> </div>
+</div>
+    
+    
+    <script src="js/index.js"></script>
+</body>
+</html>
