@@ -516,69 +516,85 @@ Highcharts.chart('fuel', {
     });
 
 
-var bar = new ProgressBar.Circle(rocket, { //this gauge is for the rocket within the speedometer but has been hidden in css because it is not being used for newquay
-  color: '#ff33cc',
-  // This has to be the same size as the maximum width to
-  // prevent clipping
-  strokeWidth: 8,
-  trailWidth: 2,
-  easing: 'easeInOut',
-  duration: 7250,
-  text: {
-    autoStyleContainer: false,
-  },
-  from: { color: '#ff33cc', width: 7 },
-  to: { color: '#ff33cc', width: 7 },
-  // Set default step function for all animate calls
-  step: function(state, circle) {
-    circle.path.setAttribute('stroke', state.color);
-    circle.path.setAttribute('stroke-width', state.width);
+var startColor = '#ff33cc';
+var endColor = '#ff33cc';
 
-    var value = Math.round(circle.value() * 100); //here value for gauge is being set. Currently set for 100
-    if (value === 0) {
+var circle = new ProgressBar.Circle(rocket, {
+    color: startColor,
+    easing: 'easeInOut',
+    strokeWidth: 8,
+    trailWidth: 1,
+    duration: 3000,
+    text: {
+       
+    },
+    
+    step: function(state, bar) {
+
+        bar.setText((bar.value() * 100).toFixed(0));
+        bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    }
+});
+
+// This will get the number from the page
+    var value = (90 / 100);
+    
+
+// This will determine the circumference of the circle
+circle.animate(value, {
+    from: {color: startColor},
+    to: {color: endColor}, 
+    step: function(state, circle, bar) {
+            circle.path.setAttribute('stroke', state.color);
+        console.log(circle);
+          if (value === 0) {
       circle.setText('ROCKET');
     } else {
-      circle.setText(value + "%" + " ROCKET");
+      circle.setText((circle.value() * 100).toFixed(0) + "%" + " ROCKET");
     }
 
   }
 });
-bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-bar.text.style.fontSize = '1vw';
 
-bar.animate(1.00);  // Number from 0.0 to 1.0
 
-var bar = new ProgressBar.Circle(machno, { //this gauge is for the machno within the speedometer which is visible on dashboard 
-  color: '#ff33cc',
-  // This has to be the same size as the maximum width to
-  // prevent clipping
-  strokeWidth: 8,
-  trailWidth: 2,
-  easing: 'easeInOut',
-  duration: 7250,
-  text: {
-    autoStyleContainer: false,
-  },
-  from: { color: '#ff33cc', width: 7 },
-  to: { color: '#ff33cc', width: 7 },
-  // Set default step function for all animate calls
-  step: function(state, circle) {
-    circle.path.setAttribute('stroke', state.color);
-    circle.path.setAttribute('stroke-width', state.width);
+var startColor = '#ff33cc';
+var endColor = '#ff33cc';
 
-    var value = Math.round(circle.value() * 100); //here value for gauge is being set. Currently set for 100
-    if (value === 0) {
+var circle = new ProgressBar.Circle(machno, {
+    color: startColor,
+    easing: 'easeInOut',
+    strokeWidth: 8,
+    trailWidth: 1,
+    duration: 3000,
+    text: {
+       
+    },
+    
+    step: function(state, bar) {
+
+        bar.setText((bar.value() * 100).toFixed(0));
+        bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+    }
+});
+
+// This will get the number from the page
+    var value = (90 / 100);
+    
+
+// This will determine the circumference of the circle
+circle.animate(value, {
+    from: {color: startColor},
+    to: {color: endColor}, 
+    step: function(state, circle, bar) {
+            circle.path.setAttribute('stroke', state.color);
+        console.log(circle);
+          if (value == 0) {
       circle.setText('MACH NO.');
     } else {
-      circle.setText(value + " MACH NO.");
+      circle.setText((circle.value() * 100).toFixed(0) + ' MACH NO.');
     }
-
-  }
+        }
 });
-bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-bar.text.style.fontSize = '1vw';
-
-bar.animate(1.00);  // Number from 0.0 to 1.0
 
 var bar = new ProgressBar.Circle(nl, { //this gauge is for NL within the speedometer which is visible on dashboard 
   color: '#00ccff',
@@ -610,7 +626,8 @@ var bar = new ProgressBar.Circle(nl, { //this gauge is for NL within the speedom
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '1vw';
 
-bar.animate(0.75);  // Number from 0.0 to 1.0
+var stopvalue = 50; // websocket integration
+bar.animate(0.75 * stopvalue/100);  // scale for bar on gauge
 
 var bar = new ProgressBar.SemiCircle(aj, { //this gauge is for AJ within the speedometer which is visible on dashboard 
   strokeWidth: 7,
@@ -628,7 +645,8 @@ var bar = new ProgressBar.SemiCircle(aj, { //this gauge is for AJ within the spe
   // Set default step function for all animate calls
   step: (state, bar) => {
     bar.path.setAttribute('stroke', state.color);
-    var value = Math.round(bar.value() * 200); //here value for gauge is being set
+    var value = Math.round(bar.value() * 200); 
+      console.log(bar.value());
     if (value === 0) {
       bar.setText('AJ');
     } else {
@@ -640,7 +658,7 @@ var bar = new ProgressBar.SemiCircle(aj, { //this gauge is for AJ within the spe
 });
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '1vw';
-
-bar.animate(0.5);  // Number from 0.0 to 1.0
+var stopvalue = 50; //here value for gauge is being set
+bar.animate(0.5 * stopvalue/100);  // scale for bar on gauge 
 
 // segDisplay.value(56749);
