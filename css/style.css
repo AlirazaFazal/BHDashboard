@@ -256,32 +256,33 @@ margin: -27% 0% 0% 0%;
 }
 
 .voltage-text {
-  position: relative;
+  position: absolute;
   white-space: pre;
   text-align: center;
-  margin-top: 117%;
-  right: 40%;
+  right: 82%;
+  top: 85%;
   font-size: 0.8vw;
   color: #fff;
   font-family: helvetica, sans-serif;
 }
 
 .fronttempgauge-text {
-  position: relative;
+  position: absolute;
   white-space: pre;
   text-align: center;
-  margin-top: -12.9%;
-  right: 10%;
+  right: 43%;
+  top: 85%;
   font-size: 0.8vw;
   color: #fff;
   font-family: helvetica, sans-serif;
 }
 
 .reartempgauge-text {
-  position: relative;
+  position: absolute;
   white-space: pre;
   text-align: center;
-  margin: -13% 0% 0% 42%;
+  top: 85%;
+  right: 11%; 
   font-size: 0.8vw;
   color: #fff;
   font-family: helvetica, sans-serif;
