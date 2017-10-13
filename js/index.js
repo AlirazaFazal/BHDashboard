@@ -540,7 +540,7 @@ var circle = new ProgressBar.Circle(rocket, {
     trailWidth: 1,
     duration: 3000,
     text: {
-       
+       autoStyleContainer: false,
     },
     
     step: function(state, bar) {
@@ -581,13 +581,14 @@ var circle = new ProgressBar.Circle(machno, {
     trailWidth: 1,
     duration: 3000,
     text: {
-       
+       autoStyleContainer: false,
     },
     
     step: function(state, bar) {
 
         bar.setText((bar.value() * 100).toFixed(0));
         bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+        bar.text.style.fontSize = '1vw';
     }
 });
 
@@ -601,7 +602,6 @@ circle.animate(value, {
     to: {color: endColor}, 
     step: function(state, circle, bar) {
             circle.path.setAttribute('stroke', state.color);
-        console.log(circle);
           if (value == 0) {
       circle.setText('MACH NO.');
     } else {
