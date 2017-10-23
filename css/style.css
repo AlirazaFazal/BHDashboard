@@ -4,7 +4,6 @@
   font: 16px arial;
   background-color: black;
 }
-
 .highcharts-background {
 	fill: #000;
 }
@@ -298,6 +297,13 @@ margin: -27% 0% 0% 0%;
  clip-path: inset(0% 50% 0% 0%);
 }
 
+tspan {    
+    fill: #f8f8ff;
+    font-size: 1vw;
+    font-weight: lighter;
+    position: relative;
+    font: 'Trebuchet MS, Verdana, sans-serif';
+}
 
 /*
 .segdisplay .on {
