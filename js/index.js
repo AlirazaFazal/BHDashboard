@@ -35,7 +35,7 @@ var $linearGauge3 = $("#distancegauge");
                     }
                 ],
                 minimumValue: 0,
-                maximumValue: 1000,
+                maximumValue: 100,
                 value: 0, //The value that changes the pointer for the distance gauge
                 tickBrush: '#F79646',
                 minorTickBrush: '#F79646',
@@ -78,7 +78,7 @@ var $linearGauge1 = $("#voltagegauge");
                     }
                 ], 
                 minimumValue: 0,
-                maximumValue: 100,
+                maximumValue: 50,
                 value: 0, //value that changes that pointer for the voltage
                 tickBrush: '#F79646',
                 minorTickBrush: '#F79646',
@@ -109,41 +109,41 @@ lgauges["ftemp"] = $lineargaugefront;
                 ranges: [
                    {
                        name: 'Cold',
-                       startValue: -20,
-                       endValue: 0,
+                       startValue: 0,
+                       endValue: 20,
                        brush: '#2788B1',
                        outerStartExtent: .2,
                        outerEndExtent: .3
                    },
                    {
                        name: 'Mild',
-                       startValue: 0,
-                       endValue: 20,
+                       startValue: 20,
+                       endValue: 40,
                        brush: '#A4BA29',
                        outerStartExtent: .3,
                        outerEndExtent: .4
                    },
                    {
                        name: 'Warm',
-                       startValue: 20,
-                       endValue: 40,
+                       startValue: 40,
+                       endValue: 70,
                        brush: '#FDBD48',
                        outerStartExtent: .4,
                        outerEndExtent: .5
                    },
                    {
                        name: 'Hot',
-                       startValue: 40,
-                       endValue: 60,
+                       startValue: 70,
+                       endValue: 120,
                        brush: '#D3404B',
                        outerStartExtent: .5,
                        outerEndExtent: .6
                    }
                 ],
                 showToolTip: true,
-                minimumValue: -20,
-                maximumValue: 60,
-                value: 58, //value that changes the pointer for the front brake temp  
+                minimumValue: 0,
+                maximumValue: 120,
+                value: 0, //value that changes the pointer for the front brake temp  
                 interval: 10,
                 tickEndExtent:0.2,
                 minorTickEndExtent:0.15 
@@ -167,41 +167,41 @@ $(function () {
                 ranges: [
                    {
                        name: 'Cold',
-                       startValue: -20,
-                       endValue: 0,
+                       startValue: 0,
+                       endValue: 20,
                        brush: '#2788B1',
                        outerStartExtent: .2,
                        outerEndExtent: .3
                    },
                    {
                        name: 'Mild',
-                       startValue: 0,
-                       endValue: 20,
+                       startValue: 20,
+                       endValue: 40,
                        brush: '#A4BA29',
                        outerStartExtent: .3,
                        outerEndExtent: .4
                    },
                    {
                        name: 'Warm',
-                       startValue: 20,
-                       endValue: 40,
+                       startValue: 40,
+                       endValue: 70,
                        brush: '#FDBD48',
                        outerStartExtent: .4,
                        outerEndExtent: .5
                    },
                    {
                        name: 'Hot',
-                       startValue: 40,
-                       endValue: 60,
+                       startValue: 70,
+                       endValue: 120,
                        brush: '#D3404B',
                        outerStartExtent: .5,
                        outerEndExtent: .6
                    }
                 ],
                 showToolTip: true,
-                minimumValue: -20,
-                maximumValue: 60,
-                value: 58, //value that changes the pointer for the rear brake temp 
+                minimumValue: 0,
+                maximumValue: 120,
+                value: 0, //value that changes the pointer for the rear brake temp 
                 interval: 10,
                 tickEndExtent:0.2,
                 minorTickEndExtent:0.15 
@@ -246,17 +246,17 @@ Highcharts.chart('speedometer', {
         // the value axis
         yAxis: {
             min: 0,
-            max: 200,
+            max: 300,
             minorTickInterval: 'auto',
             minorTickWidth: 3,
             minorTickLength: 8,
             minorTickPosition: 'inside',
             minorTickColor: '#fff',
 
-            tickPixelInterval: 52,
+            tickPixelInterval: 35,
             tickWidth: 2,
             tickPosition: 'inside',
-            tickLength: 10,
+            tickLength: 13,
             tickColor: '#fff',
             labels: {
                 step: 2,
@@ -275,8 +275,8 @@ Highcharts.chart('speedometer', {
                 }
             },
             plotBands: {
-                from: 160,
-                to: 200,
+                from: 260,
+                to: 300,
                 className: 'red-band'
             }
         },
@@ -290,7 +290,11 @@ Highcharts.chart('speedometer', {
 
         series: [{
             data: [0], //when page is loaded this value is set onto the speedometer gauge 
-            
+            dataLabels: {
+	        	format: '<div style="text-align:center"><span style="font-size:0%;color:' + 
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'white') + '">{y}</span><br/>' + 
+                   	'</div>'
+	        },
     }]
 
     },
@@ -359,7 +363,7 @@ Highcharts.chart('rpm', {
             minorTickPosition: 'inside',
             minorTickColor: '#fff',
 
-            tickPixelInterval: 52,
+            tickPixelInterval: 35,
             tickWidth: 10,
             tickPosition: 'inside',
             tickLength: 13,
@@ -373,7 +377,7 @@ Highcharts.chart('rpm', {
                 }
             },
             title: {
-                text: "RPM",
+                text: "ACCEL.",
                 style: {
                     color: '#fff',
                     font: '11px Trebuchet MS, Verdana, sans-serif'
@@ -394,10 +398,13 @@ Highcharts.chart('rpm', {
         },
 
         series: [{
+            name: 'ACCELERATION',
             data: [0], //when page is loaded this value is set onto the rpm gauge, hookup data stream for websocket
-            tooltip: {
-                valueSuffix: 'RPM'
-            }
+            dataLabels: {
+	        	format: '<div style="text-align:center"><span style="font-size:100%;color:' + 
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'white') + '">{y}</span><br/>' + 
+                   	'</div>'
+	        },
     }]
 
     },
@@ -466,7 +473,7 @@ Highcharts.chart('fuel', {
             minorTickPosition: 'inside',
             minorTickColor: '#fff',
 
-            tickPixelInterval: 52,
+            tickPixelInterval: 35,
             tickWidth: 10,
             tickPosition: 'inside',
             tickLength: 13,
@@ -480,7 +487,7 @@ Highcharts.chart('fuel', {
                 }
             },
             title: {
-                text: "FUEL",
+                text: "FUEL %",
                 className: 'fueltitle',
                 style: {
                     color: '#fff',
@@ -502,10 +509,13 @@ Highcharts.chart('fuel', {
         },
 
         series: [{
+            name: 'FUEL',
             data: [100], //when page is loaded this value is set onto the rpm gauge, hookup data stream for websocket
-            tooltip: {
-                valueSuffix: 'FUEL'
-            }
+            dataLabels: {
+	        	format: '<div style="text-align:center"><span style="font-size:100%;color:' + 
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'white') + '">{y}</span><br/>' + 
+                   	'</div>'
+	        }
     }]
 
     },
@@ -551,7 +561,7 @@ var circle = new ProgressBar.Circle(rocket, {
 });
 
 // This will get the number from the page
-    var value = (10 / 100);
+    var value = (0 / 100);
     
 
 // This will determine the circumference of the circle
@@ -560,7 +570,7 @@ circle.animate(value, {
     to: {color: endColor}, 
     step: function(state, circle, bar) {
             circle.path.setAttribute('stroke', state.color);
-        console.log(circle);
+        //console.log(circle);
           if (value === 0) {
       circle.setText('ROCKET');
     } else {
@@ -593,7 +603,7 @@ var circle = new ProgressBar.Circle(machno, {
 });
 
 // This will get the number from the page
-    var value = (50 / 100);
+    var value = (0 / 100);
     
 
 // This will determine the circumference of the circle
@@ -609,7 +619,7 @@ circle.animate(value, {
     }
         }
 });
-bgauges["mach"] = bar;
+bgauges["mach"] = circle;
 
 var bar = new ProgressBar.Circle(nl, { //this gauge is for NL within the speedometer which is visible on dashboard 
   color: '#00ccff',
@@ -641,7 +651,7 @@ var bar = new ProgressBar.Circle(nl, { //this gauge is for NL within the speedom
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '1vw';
 
-var stopvalue = 50; // websocket integration
+var stopvalue = 0; // websocket integration
 bar.animate(0.75 * stopvalue/100);  // scale for bar on gauge
 bgauges["nl"] = bar;
 
@@ -674,7 +684,7 @@ var bar = new ProgressBar.SemiCircle(aj, { //this gauge is for AJ within the spe
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '1vw';
 
-var stopvalue = 50; //here value for gauge is being set
+var stopvalue = 0; //here value for gauge is being set
 bar.animate(0.5 * stopvalue/100);  // scale for bar on gauge 
 bgauges["aj"] = bar;
 
@@ -684,28 +694,111 @@ bgauges["aj"] = bar;
 
 function updateGauges(msg)
 {
+	
 	msg = JSON.parse(msg);
-	gauges["speedometer"].update(msg.RS232_P2_FUEL_GPS_mph);
-	gauges["rpm"].update(msg.A1_12_BR_RPM); //msg.A1_28_BL_RPM
-	gauges["fuel"].update(msg.CALC_JetFuelRemainingPerc);
-	lgauges["distance"].igLinearGauge({value: msg.CLAC_Distance_Travelled});
-	lgauges["volt"].igLinearGauge({value: msg.A2_26_POWER_BUS_VOLTAGE_SIG});
-	lgauges["ftemp"].igLinearGauge({value: msg.A2_2_FR_TC2_OUTER_BRK_PAD_TEMP});
-	lgauges["rtemp"].igLinearGauge({value: msg.A2_2_BR_TC2_OUTER_BRK_PAD_TEMP}); 
-	
-	bgauges["mach"].animate(msg.CALC_MachNo);
-	//bgauges["rocket"].animate(0.1);
-	bgauges["nl"].animate(msg.MILBUS_DECUJetNL);
-	bgauges["aj"].animate(msg.MILBUS_DECUJetNozArea);
+	console.log(msg);
+	if (msg.RS232_P1_GPS_mph)
+		gauges["speedometer"].update(msg.RS232_P1_GPS_mph); //RS232_P2_FUEL_GPS_mph
 
-	$('.tbt-percentage').text(msg.CALC_DECUJetTBTPercent+" %TBT"); 
-	$('.nh-percentage').text(msg.MILBUS_DECUJetNH+" %NH"); 
+	if (msg.CALC_GPS_Accel)
+		gauges["rpm"].update(msg.CALC_GPS_Accel);
+
+	if (msg.CALC_JetFuelRemainingPerc)
+		gauges["fuel"].update(msg.CALC_JetFuelRemainingPerc);
+
+	if (msg.CLAC_Distance_Travelled)
+	{
+		var distance_percent = msg.CLAC_Distance_Travelled/3200*100;
+		lgauges["distance"].igLinearGauge({value: distance_percent});
+	}
+	if (msg.A2_26_POWER_BUS_VOLTAGE_SIG)
+		lgauges["volt"].igLinearGauge({value: msg.A2_26_POWER_BUS_VOLTAGE_SIG});
+
+	if (msg.A2_1_FR_TC1_INNER_BRK_PAD_TEMP)
+		lgauges["ftemp"].igLinearGauge({value: msg.A2_1_FR_TC1_INNER_BRK_PAD_TEMP});
+
+	if (msg.A2_1_BR_TC1_INNER_BRK_PAD_TEMP)
+		lgauges["rtemp"].igLinearGauge({value: msg.A2_1_BR_TC1_INNER_BRK_PAD_TEMP}); 
 	
+	if (msg.CALC_MachNo)
+		bgauges["mach"].setText(msg.CALC_MachNo+ ' MACH NO.');//animate(msg.CALC_MachNo);
+
+	//if (msg.)
+		//bgauges["rocket"].animate(0.1);
+
+	if (msg.MILBUS_DECUJetNL)
+		bgauges["nl"].animate(msg.MILBUS_DECUJetNL);
+
+	if (msg.MILBUS_DECUJetNozArea)
+		bgauges["aj"].animate(msg.MILBUS_DECUJetNozArea);
+
+	if (msg.CALC_DECUJetTBTPercent)
+		$('.tbt-percentage').text(msg.CALC_DECUJetTBTPercent+" %TBT"); 
+
+	if (msg.MILBUS_DECUJetNH)
+		$('.nh-percentage').text(msg.MILBUS_DECUJetNH+" %NH"); 
+	
+}
+
+function updateGaugesSim(msg)
+{	
+	arr = JSON.parse(msg);
+	arr = arr.data;
+	
+	for (i = 0; i < arr.length; i++)
+	{
+		msg = arr[i];
+		if (msg.RS232_P1_GPS_mph)
+			gauges["speedometer"].update(Math.round(msg.RS232_P1_GPS_mph)); //RS232_P2_FUEL_GPS_mph
+
+		if (msg.CALC_GPS_Accel)
+			gauges["rpm"].update(Math.round(msg.CALC_GPS_Accel));
+
+		if (msg.CALC_JetFuelRemainingPerc)
+			gauges["fuel"].update(Math.round(msg.CALC_JetFuelRemainingPerc));
+
+		if (msg.CLAC_Distance_Travelled)
+		{
+			var distance_percent = msg.CLAC_Distance_Travelled/3200*100;
+			lgauges["distance"].igLinearGauge({value: Math.round(distance_percent)});
+		}
+		if (msg.A2_26_POWER_BUS_VOLTAGE_SIG)
+			lgauges["volt"].igLinearGauge({value: Math.round(msg.A2_26_POWER_BUS_VOLTAGE_SIG)});
+
+		if (msg.A2_1_FR_TC1_INNER_BRK_PAD_TEMP)
+			lgauges["ftemp"].igLinearGauge({value: Math.round(msg.A2_1_FR_TC1_INNER_BRK_PAD_TEMP)});
+
+		if (msg.A2_1_BR_TC1_INNER_BRK_PAD_TEMP)
+			lgauges["rtemp"].igLinearGauge({value: Math.round(msg.A2_1_BR_TC1_INNER_BRK_PAD_TEMP)}); 
+		
+		if (msg.CALC_MachNo)
+			bgauges["mach"].setText(Math.round(msg.CALC_MachNo)+ ' MACH NO.');//animate(msg.CALC_MachNo);
+
+		//if (msg.)
+			//bgauges["rocket"].animate(0.1);
+
+		if (msg.MILBUS_DECUJetNL)
+			bgauges["nl"].animate(Math.round(msg.MILBUS_DECUJetNL));
+
+		if (msg.MILBUS_DECUJetNozArea)
+			bgauges["aj"].animate(Math.round(msg.MILBUS_DECUJetNozArea));
+
+		if (msg.CALC_DECUJetTBTPercent)
+			$('.tbt-percentage').text(Math.round(msg.CALC_DECUJetTBTPercent)+" %TBT"); 
+
+		if (msg.MILBUS_DECUJetNH)
+			$('.nh-percentage').text(Math.round(msg.MILBUS_DECUJetNH)+" %NH"); 
+	}
 }
 
 document.body.onload = function() {
 
-	create_socket();
+	//create_socket();
+	// simulated_data(2002);
+	if (run_id == "live")
+		create_socket();
+	else
+		simulated_data(run_id);
 }
 var prev_ts = -1;
 var socket = null;
@@ -738,4 +831,31 @@ function create_socket()
 		  window.setTimeout("updateGauges('"+message.data+"')", offset);
 	  }
 	};
+}
+var payload = null;
+var speed = "200"; //ms
+function simulated_data(run_id)
+{
+	$.ajax({
+	  type: "GET",
+	  dataType: "json",
+	  async: true,
+	  url: "http://data.bloodhoundssc.com/api/dashboard/?func_name=get_data&run_id="+run_id,	  
+	  success: function(data) 
+	  {
+		  payload=data.PAYLOAD;
+		  run_simulator(0);
+	  }
+	});
+}
+
+function run_simulator(idx)
+{
+	if (payload)
+	{
+		//console.log(idx);
+		updateGaugesSim(payload[idx++]);
+		if (idx < payload.length)
+			window.setTimeout("run_simulator("+idx+")", speed);
+	}
 }
